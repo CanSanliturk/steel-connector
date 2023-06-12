@@ -7,9 +7,9 @@ import { AxesHelper } from 'three';
 function App() {
   const [selectedTab, setSelectedTab] = useState('model');
   const [cubeDimensions, setCubeDimensions] = useState({
-    x: 1,
-    y: 1,
-    z: 1,
+    x: 100,
+    y: 100,
+    z: 10,
   });
 
   const handleTabClick = (tab) => {
@@ -43,11 +43,11 @@ function App() {
     const axesHelper = new AxesHelper(2);
     scene.add(axesHelper);
 
-    camera.position.z = 5;
+    camera.position.z = 120;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableRotate = true;
-    controls.enableZoom = false;
+    controls.enableZoom = true; // Enable zoom
 
     const animate = () => {
       requestAnimationFrame(animate);
